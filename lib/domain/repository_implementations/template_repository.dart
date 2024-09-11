@@ -9,13 +9,13 @@ class TemplateRepositoryImpl implements TemplateRepositoryContract {
   TemplateRepositoryImpl(this._templateRemoteDataSourceContract);
 
   @override
-  Future<Result<Exception, ObjectEntity>> getAllObjects() async {
+  Future<Result<Exception, List<ObjectEntity>>> getAllObjects() async {
     try {
       final response = await _templateRemoteDataSourceContract.getAllObjects();
       return response.match(onError: (error) {
         return Failure(error);
       }, onValue: (data) {
-        return Success(ObjectEntity.fromJson(data));
+        return Success(ObjectEntity().fromJsonList(data));
       });
     } catch (e) {
       return Failure(Exception("Failed to fetch objects: $e"));

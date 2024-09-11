@@ -29,3 +29,9 @@ class Success<E, T> extends Result<E, T> {
   final T value;
   Success(this.value);
 }
+
+final class Unit {
+  const Unit._();
+}
+
+const unit = Unit._();

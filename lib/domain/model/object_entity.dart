@@ -12,4 +12,8 @@ class ObjectEntity {
     data['id'] = id;
     return data;
   }
+
+  List<ObjectEntity> fromJsonList(List<Map<String, dynamic>> list) {
+    return list.map((item) => ObjectEntity.fromJson(item)).toList();
+  }
 }

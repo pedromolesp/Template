@@ -11,7 +11,7 @@ class TemplateRemoteDataSource implements TemplateRemoteDataSourceContract {
   final apiUrl = AppUrls.getApiUrl();
 
   @override
-  Future<Result<Exception, Map<String, dynamic>>> getAllObjects() async {
+  Future<Result<Exception, List<Map<String, dynamic>>>> getAllObjects() async {
     try {
       var headers = {'Content-Type': 'application/xml'};
       final response = await _dio.request(

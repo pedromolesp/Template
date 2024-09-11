@@ -1,6 +1,10 @@
 part of 'home_bloc.dart';
 
-@immutable
-sealed class HomeState {}
+@freezed
+class HomeState with _$HomeState {
+  const HomeState._();
 
-final class HomeInitial extends HomeState {}
+  const factory HomeState.initial({
+    @Default([]) List<ObjectEntity> objects,
+  }) = _Initial;
+}
