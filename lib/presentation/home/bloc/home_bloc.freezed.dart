@@ -171,20 +171,20 @@ abstract class _GetAllObjects implements HomeEvent {
 
 /// @nodoc
 mixin _$HomeState {
-  List<ObjectEntity> get objects => throw _privateConstructorUsedError;
+  ObjectEntity? get objects => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<ObjectEntity> objects) initial,
+    required TResult Function(ObjectEntity? objects) initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ObjectEntity> objects)? initial,
+    TResult? Function(ObjectEntity? objects)? initial,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ObjectEntity> objects)? initial,
+    TResult Function(ObjectEntity? objects)? initial,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -217,7 +217,7 @@ abstract class $HomeStateCopyWith<$Res> {
   factory $HomeStateCopyWith(HomeState value, $Res Function(HomeState) then) =
       _$HomeStateCopyWithImpl<$Res, HomeState>;
   @useResult
-  $Res call({List<ObjectEntity> objects});
+  $Res call({ObjectEntity? objects});
 }
 
 /// @nodoc
@@ -235,13 +235,13 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objects = null,
+    Object? objects = freezed,
   }) {
     return _then(_value.copyWith(
-      objects: null == objects
+      objects: freezed == objects
           ? _value.objects
           : objects // ignore: cast_nullable_to_non_nullable
-              as List<ObjectEntity>,
+              as ObjectEntity?,
     ) as $Val);
   }
 }
@@ -254,7 +254,7 @@ abstract class _$$InitialImplCopyWith<$Res>
       __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ObjectEntity> objects});
+  $Res call({ObjectEntity? objects});
 }
 
 /// @nodoc
@@ -270,13 +270,13 @@ class __$$InitialImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? objects = null,
+    Object? objects = freezed,
   }) {
     return _then(_$InitialImpl(
-      objects: null == objects
-          ? _value._objects
+      objects: freezed == objects
+          ? _value.objects
           : objects // ignore: cast_nullable_to_non_nullable
-              as List<ObjectEntity>,
+              as ObjectEntity?,
     ));
   }
 }
@@ -284,18 +284,10 @@ class __$$InitialImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialImpl extends _Initial {
-  const _$InitialImpl({final List<ObjectEntity> objects = const []})
-      : _objects = objects,
-        super._();
+  const _$InitialImpl({this.objects}) : super._();
 
-  final List<ObjectEntity> _objects;
   @override
-  @JsonKey()
-  List<ObjectEntity> get objects {
-    if (_objects is EqualUnmodifiableListView) return _objects;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_objects);
-  }
+  final ObjectEntity? objects;
 
   @override
   String toString() {
@@ -307,12 +299,11 @@ class _$InitialImpl extends _Initial {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InitialImpl &&
-            const DeepCollectionEquality().equals(other._objects, _objects));
+            (identical(other.objects, objects) || other.objects == objects));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_objects));
+  int get hashCode => Object.hash(runtimeType, objects);
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -325,7 +316,7 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(List<ObjectEntity> objects) initial,
+    required TResult Function(ObjectEntity? objects) initial,
   }) {
     return initial(objects);
   }
@@ -333,7 +324,7 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(List<ObjectEntity> objects)? initial,
+    TResult? Function(ObjectEntity? objects)? initial,
   }) {
     return initial?.call(objects);
   }
@@ -341,7 +332,7 @@ class _$InitialImpl extends _Initial {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(List<ObjectEntity> objects)? initial,
+    TResult Function(ObjectEntity? objects)? initial,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -380,11 +371,11 @@ class _$InitialImpl extends _Initial {
 }
 
 abstract class _Initial extends HomeState {
-  const factory _Initial({final List<ObjectEntity> objects}) = _$InitialImpl;
+  const factory _Initial({final ObjectEntity? objects}) = _$InitialImpl;
   const _Initial._() : super._();
 
   @override
-  List<ObjectEntity> get objects;
+  ObjectEntity? get objects;
 
   /// Create a copy of HomeState
   /// with the given fields replaced by the non-null parameter values.

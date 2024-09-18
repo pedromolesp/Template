@@ -1,11 +1,11 @@
 import 'package:templateapp/app/constants/environment_config.dart';
 
 class AppUrls {
-  static const String apiPreUrl = 'https://url';
-  static const String apiDevUrl = 'https://url';
-  static const String apiProdUrl = 'https://url';
+  static const String apiPreUrl = "https://api.themoviedb.org/3";
+  static const String apiDevUrl = "https://api.themoviedb.org/3";
+  static const String apiProdUrl = "https://api.themoviedb.org/3";
 
-  static const String getAllObject = '/list';
+  static const String getAllObject = '/movie/popular';
 
   static String getApiUrl() {
     String apiUrl = '';

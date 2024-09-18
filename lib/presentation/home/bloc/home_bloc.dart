@@ -15,17 +15,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         super(const _Initial()) {
     on<HomeEvent>((event, emit) async {
       await event.when(
-        getAllObjects: () => _getAllObjects(),
+        getAllObjects: () => _getAllObjects(event, emit),
       );
     });
   }
 
-  Future<void> _getAllObjects() async {
+  Future<void> _getAllObjects(
+    HomeEvent event,
+    Emitter<HomeState> emit,
+  ) async {
     final response = await _repository.getAllObjects();
     response.match(
       onError: (error) {},
       onValue: (value) {
-        print('${value.length}');
+        print('${value.results?.length}');
+        emit(state.copyWith(objects: value));
       },
     );
   }

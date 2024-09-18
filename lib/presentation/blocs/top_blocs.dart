@@ -15,7 +15,9 @@ class TopBlocProviders extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => _getIt<LanguageBloc>()),
-        BlocProvider(create: (context) => _getIt<HomeBloc>()),
+        BlocProvider(
+            create: (context) =>
+                _getIt<HomeBloc>()..add(const HomeEvent.getAllObjects())),
       ],
       child: child,
     );
