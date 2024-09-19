@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:templateapp/app/config/di/dependency_inyector.dart';
 import 'package:templateapp/app/constants/constants.dart';
 import 'package:templateapp/app/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:templateapp/presentation/blocs/language/language_bloc.dart';
 import 'package:templateapp/presentation/blocs/top_blocs.dart';
 
 void main() {
@@ -18,20 +20,25 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TopBlocProviders(
-      child: MaterialApp.router(
-        debugShowCheckedModeBanner: false,
-        routerConfig: goRouter,
-        title: AppConstants.appName,
-        localizationsDelegates: const [
-          AppLocalizations.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        supportedLocales: const [
-          Locale('en'),
-          Locale('es'),
-        ],
+      child: BlocBuilder<LanguageBloc, LanguageState>(
+        builder: (context, state) {
+          return MaterialApp.router(
+            debugShowCheckedModeBanner: false,
+            routerConfig: goRouter,
+            title: AppConstants.appName,
+            locale: state.locale,
+            localizationsDelegates: const [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            supportedLocales: const [
+              Locale('en'),
+              Locale('es'),
+            ],
+          );
+        },
       ),
     );
   }
