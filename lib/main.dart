@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:templateapp/app/config/di/dependency_inyector.dart';
 import 'package:templateapp/app/constants/constants.dart';
-import 'package:templateapp/app/routes.dart';
+import 'package:templateapp/app/routes/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:templateapp/app/theme/theme.dart';
 import 'package:templateapp/presentation/blocs/language/language_bloc.dart';
 import 'package:templateapp/presentation/blocs/top_blocs.dart';
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             routerConfig: goRouter,
             title: AppConstants.appName,
+            theme: AppTheme.lightTheme,
             locale: state.locale,
             localizationsDelegates: const [
               AppLocalizations.delegate,

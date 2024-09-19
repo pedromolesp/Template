@@ -10,11 +10,15 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(context.localizations.appName),
+      ),
       body: BlocBuilder<HomeBloc, HomeState>(
         builder: (context, state) {
           return SafeArea(
             child: Center(
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
                     "${context.localizations.helloWorld} ${state.objects?.results?.length}"),
