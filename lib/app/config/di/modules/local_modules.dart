@@ -1,9 +1,10 @@
 part of '../dependency_inyector.dart';
 
-_localModulesInit() async {
+Future<void> _localModulesInit() async {
   final sharedPreferences = await SharedPreferences.getInstance();
+  getIt.registerLazySingleton<SharedPreferences>(() => sharedPreferences);
 
-  getIt.registerLazySingleton<LocalPreferences>(
-    () => SharedPreferencesLocalPreferences(instance: sharedPreferences),
+  getIt.registerLazySingleton<TemplateLocalDataSourceContract>(
+    () => TemplateLocalDataSource(instance: sharedPreferences),
   );
 }

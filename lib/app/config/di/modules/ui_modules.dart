@@ -2,10 +2,10 @@ part of '../dependency_inyector.dart';
 
 void _uiModulesInit() {
   getIt.registerFactory(
-    () => HomeBloc(templateRepositoryContract: getIt()),
+    () => HomeBloc(templateRemoteRepositoryContract: getIt()),
   );
 
   getIt.registerFactory(
-    () => GlobalCubit(),
+    () => GlobalCubit(templateLocalRepositoryContract: getIt()),
   );
 }

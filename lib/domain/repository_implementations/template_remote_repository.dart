@@ -1,12 +1,12 @@
 import 'package:templateapp/app/types/result.dart';
 import 'package:templateapp/data/data_source_contracts/template_remote_data_source_contract.dart';
 import 'package:templateapp/domain/model/object_entity.dart';
-import 'package:templateapp/domain/repository_contracts/template_repository_contract.dart';
+import 'package:templateapp/domain/repository_contracts/template_remote_repository_contract.dart';
 
-class TemplateRepositoryImpl implements TemplateRepositoryContract {
+class TemplateRemoteRepositoryImpl implements TemplateRemoteRepositoryContract {
   final TemplateRemoteDataSourceContract _templateRemoteDataSourceContract;
 
-  TemplateRepositoryImpl(this._templateRemoteDataSourceContract);
+  TemplateRemoteRepositoryImpl(this._templateRemoteDataSourceContract);
 
   @override
   Future<Result<Exception, ObjectEntity>> getAllObjects() async {

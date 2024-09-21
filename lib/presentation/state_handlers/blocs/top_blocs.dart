@@ -17,7 +17,8 @@ class TopBlocProviders extends StatelessWidget {
         BlocProvider(
             create: (context) =>
                 _getIt<HomeBloc>()..add(const HomeEvent.getAllObjects())),
-        BlocProvider(create: (context) => _getIt<GlobalCubit>()),
+        BlocProvider(
+            create: (context) => _getIt<GlobalCubit>()..initGlobalCubit()),
       ],
       child: child,
     );

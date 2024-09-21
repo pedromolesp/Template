@@ -1,9 +1,9 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:templateapp/app/types/result.dart';
-import 'package:templateapp/data/data_source/local_preferences/local_preferences.dart';
+import 'package:templateapp/data/data_source_contracts/template_local_contract.dart';
 
-class SharedPreferencesLocalPreferences implements LocalPreferences {
-  SharedPreferencesLocalPreferences({
+class TemplateLocalDataSource implements TemplateLocalDataSourceContract {
+  TemplateLocalDataSource({
     required SharedPreferences instance,
   }) : _instance = instance;
 
@@ -23,20 +23,20 @@ class SharedPreferencesLocalPreferences implements LocalPreferences {
   }
 
   @override
-  Future<Result<Exception, bool>> getBool({required String key}) async {
+  Future<Result<Exception, bool?>> getBool({required String key}) async {
     try {
       final result = _instance.getBool(key);
-      return Success(result ?? false);
+      return Success(result);
     } catch (e) {
       return Failure(e as Exception);
     }
   }
 
   @override
-  Future<Result<Exception, String>> getString({required String key}) async {
+  Future<Result<Exception, String?>> getString({required String key}) async {
     try {
       final result = _instance.getString(key);
-      return Success(result ?? '');
+      return Success(result);
     } catch (e) {
       return Failure(e as Exception);
     }
