@@ -6,8 +6,8 @@ import 'package:templateapp/app/routes/routes.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:templateapp/app/theme/theme.dart';
-import 'package:templateapp/presentation/blocs/language/language_bloc.dart';
-import 'package:templateapp/presentation/blocs/top_blocs.dart';
+import 'package:templateapp/presentation/state_handlers/blocs/top_blocs.dart';
+import 'package:templateapp/presentation/state_handlers/cubit/global_cubit.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,13 +21,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TopBlocProviders(
-      child: BlocBuilder<LanguageBloc, LanguageState>(
+      child: BlocBuilder<GlobalCubit, GlobalState>(
         builder: (context, state) {
           return MaterialApp.router(
             debugShowCheckedModeBanner: false,
             routerConfig: goRouter,
             title: AppConstants.appName,
-            theme: AppTheme.lightTheme,
+            theme: state.themeMode == GlobalThemeMode.light
+                ? ThemeData.light()
+                : ThemeData.dark(),
+            darkTheme: AppTheme.darkTheme,
             locale: state.locale,
             localizationsDelegates: const [
               AppLocalizations.delegate,

@@ -10,8 +10,8 @@ import 'package:templateapp/data/network/dio_http_client.dart';
 import 'package:templateapp/data/network/interceptors/curl_dio_interceptor.dart';
 import 'package:templateapp/domain/repository_contracts/template_repository_contract.dart';
 import 'package:templateapp/domain/repository_implementations/template_repository.dart';
-import 'package:templateapp/presentation/blocs/language/language_bloc.dart';
 import 'package:templateapp/presentation/home/bloc/home_bloc.dart';
+import 'package:templateapp/presentation/state_handlers/cubit/global_cubit.dart';
 
 part 'modules/api_modules.dart';
 part 'modules/local_modules.dart';

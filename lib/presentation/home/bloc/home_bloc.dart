@@ -28,7 +28,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     response.match(
       onError: (error) {},
       onValue: (value) {
-        print('${value.results?.length}');
         emit(state.copyWith(objects: value));
       },
     );
