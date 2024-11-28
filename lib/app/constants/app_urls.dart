@@ -1,9 +1,9 @@
 import 'package:templateapp/app/constants/environment_config.dart';
 
 class AppUrls {
-  static const String apiPreUrl = "https://api.themoviedb.org/3";
-  static const String apiDevUrl = "https://api.themoviedb.org/3";
-  static const String apiProdUrl = "https://api.themoviedb.org/3";
+  static const String apiPreUrl = 'https://api.themoviedb.org/3';
+  static const String apiDevUrl = 'https://api.themoviedb.org/3';
+  static const String apiProdUrl = 'https://api.themoviedb.org/3';
 
   static const String getAllObject = '/movie/popular';
 

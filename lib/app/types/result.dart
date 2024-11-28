@@ -15,7 +15,7 @@ sealed class Result<E, T> {
 
   T assertErrors() => switch (this) {
         Failure(error: final error) =>
-          throw StateError("Result type had an error value: $error"),
+          throw StateError('Result type had an error value: $error'),
         Success(value: final value) => value,
       };
 }

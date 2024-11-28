@@ -12,10 +12,6 @@ void _apiModulesInit() {
           ? [
               LogInterceptor(
                 responseBody: true,
-                error: true,
-                requestHeader: true,
-                responseHeader: true,
-                request: true,
                 requestBody: true,
               )
             ]

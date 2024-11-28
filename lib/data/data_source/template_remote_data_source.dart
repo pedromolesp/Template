@@ -32,7 +32,7 @@ class TemplateRemoteDataSource implements TemplateRemoteDataSourceContract {
       if (code.isFailCode() || response.data == null) {
         return Failure(response.data);
       }
-      final data = response.data!;
+      final data = response.data;
 
       return Success(data);
     } on Exception catch (e) {

@@ -31,10 +31,6 @@ class DioClient {
     if (kDebugMode) {
       _dio.interceptors.add(LogInterceptor(
         responseBody: true,
-        error: true,
-        requestHeader: true,
-        responseHeader: true,
-        request: true,
         requestBody: true,
       ));
     }

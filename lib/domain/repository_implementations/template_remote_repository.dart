@@ -18,7 +18,7 @@ class TemplateRemoteRepositoryImpl implements TemplateRemoteRepositoryContract {
         return Success(ObjectEntity.fromJson(data));
       });
     } catch (e) {
-      return Failure(Exception("Failed to fetch objects: $e"));
+      return Failure(Exception('Failed to fetch objects: $e'));
     }
   }
 }

@@ -9,20 +9,35 @@
 # packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
-linter:
-  # The lint rules applied to this project can be customized in the
-  # section below to disable rules from the `package:flutter_lints/flutter.yaml`
-  # included above or to enable additional rules. A list of all available lints
-  # and their documentation is published at https://dart.dev/lints.
-  #
-  # Instead of disabling a lint rule for the entire project in the
-  # section below, it can also be suppressed for a single line of code
-  # or a specific dart file by using the `// ignore: name_of_lint` and
-  # `// ignore_for_file: name_of_lint` syntax on the line or in the file
-  # producing the lint.
-  rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+analyzer:
+ 
+  exclude:
+    # Archivos o directorios a excluir del análisis
+    - build/**
+    - "**/*.g.dart" # Archivos generados automáticamente
 
-# Additional information about this file can be found at
-# https://dart.dev/guides/language/analysis-options
+  strong-mode:
+    implicit-casts: false # Evita conversiones implícitas de tipos.
+    implicit-dynamic: false # Evita el uso implícito de `dynamic`.
+
+linter:
+  rules:
+    # Reglas adicionales recomendadas
+    - avoid_print # Evita usar `print`, usa un logger en su lugar.
+    - prefer_const_constructors # Usa constructores const siempre que sea posible.
+    - prefer_const_literals_to_create_immutables # Usa listas, mapas y conjuntos const.
+    - avoid_unnecessary_containers # Evita usar contenedores innecesarios.
+    - prefer_final_fields # Usa campos `final` cuando no cambian después de inicializarse.
+    - avoid_empty_else # Evita bloques else vacíos.
+    - prefer_is_not_empty # Usa `isNotEmpty` en lugar de `!isEmpty`.
+    - prefer_single_quotes # Prefiere comillas simples para cadenas.
+    - unnecessary_null_checks # Evita verificaciones nulas innecesarias.
+    - use_key_in_widget_constructors # Asegúrate de que los widgets tienen un key en su constructor.
+    - avoid_redundant_argument_values # Evita valores de argumento redundantes.
+
+
+# Configuración para incluir la cobertura de análisis en más casos
+monitored-variables:
+  include:
+    - unused_imports # Marca importaciones no usadas.
+    - unused_local_variable # Marca variables locales no usadas.

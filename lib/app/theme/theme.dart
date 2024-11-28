@@ -69,7 +69,6 @@ class AppTheme {
     useMaterial3: true,
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.primaryColor,
-      brightness: Brightness.light,
       primary: AppColors.primaryColor,
       onPrimary: AppColors.appBarTextColor,
       secondary: AppColors.buttonColor,

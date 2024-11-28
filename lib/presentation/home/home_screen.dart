@@ -21,23 +21,23 @@ class HomeScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                    "${context.localizations.helloWorld} ${state.objects?.results?.length}"),
+                    '${context.localizations.helloWorld} ${state.objects?.results?.length}'),
                 ElevatedButton(
                   onPressed: () {
                     final bloc = context.read<GlobalCubit>();
-                    if (bloc.state.locale.languageCode == "es") {
+                    if (bloc.state.locale.languageCode == 'es') {
                       context
                           .read<GlobalCubit>()
-                          .changeLocale(const Locale("en"));
+                          .changeLocale(const Locale('en'));
                     } else {
                       context
                           .read<GlobalCubit>()
-                          .changeLocale(const Locale("es"));
+                          .changeLocale(const Locale('es'));
                     }
 
                     context.read<GlobalCubit>().toggleTheme();
                   },
-                  child: const Text("press"),
+                  child: const Text('press'),
                 ),
               ],
             )),
