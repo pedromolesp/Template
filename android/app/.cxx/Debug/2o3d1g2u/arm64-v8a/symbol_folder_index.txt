@@ -1,0 +1,1 @@
+/Users/pedro.molina/programacion/templateapp/build/app/intermediates/cxx/Debug/2o3d1g2u/obj/arm64-v8a

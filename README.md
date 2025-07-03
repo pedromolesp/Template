@@ -2,6 +2,11 @@
 
 A new Flutter project template.
 
-## Getting Started
+## Check Version summarize
+How to launch:
+dart run check_packages_status.dart
 
-This project is a starting point for a Flutter application with the basic resources and plugins installed.
+## Clean build sh
+How to launch:
+./cleanBuild.sh
+

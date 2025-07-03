@@ -16,8 +16,7 @@ class TemplateRemoteDataSource implements TemplateRemoteDataSourceContract {
     try {
       var headers = {
         'Content-Type': 'application/xml',
-        'Authorization':
-            'Bearer ${AppConstants.token}', // Reemplaza con tu token
+        'Authorization': 'Bearer ${AppConstants.token}',
       };
       final response = await _dio.request(
         '$apiUrl${AppUrls.getAllObject}',

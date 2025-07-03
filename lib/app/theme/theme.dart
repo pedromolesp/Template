@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color primaryColor = Colors.blue;
+  static const Color black = Colors.black;
   static const Color textColor = Colors.black;
   static const Color appBarTextColor = Colors.white;
   static const Color buttonColor = Colors.blue;
@@ -15,6 +16,8 @@ class AppColors {
 }
 
 class AppDarkColors {
+  static const Color black = Colors.black;
+
   static const Color primaryColor = Colors.blue;
   static const Color textColor = Colors.white;
   static const Color appBarTextColor = Colors.white;
@@ -113,12 +116,12 @@ class AppTheme {
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.all(AppColors.primaryColor),
-      trackColor:
-          WidgetStateProperty.all(AppColors.primaryColor.withOpacity(0.5)),
+      trackColor: WidgetStateProperty.all(
+          AppColors.primaryColor.withValues(alpha: 0.5)),
     ),
     sliderTheme: SliderThemeData(
       activeTrackColor: AppColors.primaryColor,
-      inactiveTrackColor: AppColors.primaryColor.withOpacity(0.5),
+      inactiveTrackColor: AppColors.primaryColor.withValues(alpha: 0.5),
       thumbColor: AppColors.primaryColor,
     ),
     tabBarTheme: const TabBarTheme(
