@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:templateapp/app/l10n/localization_setup.dart';
+import 'package:templateapp/app/config/l10n/localization_setup.dart';
 import 'package:templateapp/domain/repository_contracts/template_local_repository_contract.dart';
 
-part 'global_state.dart';
 part 'global_cubit.freezed.dart';
+part 'global_state.dart';
 
 enum GlobalThemeMode { light, dark }
 

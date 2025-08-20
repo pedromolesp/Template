@@ -1,12 +1,11 @@
 // ignore_for_file: unused_import
 import 'package:templateapp/app/config/di/dependency_inyector.dart';
 import 'package:templateapp/app/config/env_base.dart';
+import 'package:templateapp/app/config/l10n/localization_setup.dart';
 import 'package:templateapp/app/constants/app_assets.dart';
 import 'package:templateapp/app/constants/app_urls.dart';
 import 'package:templateapp/app/constants/constants.dart';
 import 'package:templateapp/app/constants/environment_config.dart';
-import 'package:templateapp/app/l10n/context_extensions.dart';
-import 'package:templateapp/app/l10n/localization_setup.dart';
 import 'package:templateapp/app/routes/routes.dart';
 import 'package:templateapp/app/theme/theme.dart';
 import 'package:templateapp/app/types/result.dart';

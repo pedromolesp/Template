@@ -6,7 +6,6 @@ import 'package:templateapp/app/theme/palette.dart';
 const lightColorScheme = ColorScheme.light(
   // Accent
   primary: Palette.neutral100,
-  onPrimary: Palette.white,
   primaryContainer: Palette.neutral10,
   onPrimaryContainer: Palette.neutral100,
   // Secondary
@@ -14,8 +13,6 @@ const lightColorScheme = ColorScheme.light(
   onSecondary: Palette.white,
   secondaryContainer: Palette.green20,
   onSecondaryContainer: Palette.neutral100,
-  // Surface
-  surface: Palette.white,
   onSurface: Palette.neutral100,
   surfaceDim: Palette.neutral10,
   surfaceBright: Palette.neutral5,
@@ -33,7 +30,6 @@ const lightColorScheme = ColorScheme.light(
   outlineVariant: Palette.green20,
   // Error
   error: Palette.red80,
-  onError: Palette.white,
   errorContainer: Palette.red10,
   onErrorContainer: Palette.red90,
 );
@@ -94,7 +90,6 @@ const darkColorScheme = ColorScheme.dark(
   onSecondaryContainer: Palette.white,
   // Surface
   surface: Palette.neutral100,
-  onSurface: Palette.white,
   surfaceDim: Palette.neutral90,
   surfaceBright: Palette.neutral80,
   onSurfaceVariant: Palette.white,

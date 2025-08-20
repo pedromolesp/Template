@@ -124,7 +124,7 @@ class AppTheme {
       inactiveTrackColor: AppColors.primaryColor.withValues(alpha: 0.5),
       thumbColor: AppColors.primaryColor,
     ),
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       labelColor: AppColors.primaryColor,
       unselectedLabelColor: AppColors.hintColor,
     ),
@@ -133,7 +133,7 @@ class AppTheme {
       selectedItemColor: AppColors.primaryColor,
       unselectedItemColor: AppColors.hintColor,
     ),
-    dialogTheme: const DialogTheme(
+    dialogTheme: const DialogThemeData(
       backgroundColor: AppColors.scaffoldBackgroundColor,
       titleTextStyle: TextStyle(color: AppColors.textColor, fontSize: 20),
       contentTextStyle: TextStyle(color: AppColors.textColor, fontSize: 16),
@@ -226,16 +226,16 @@ class AppTheme {
       inactiveTrackColor: AppDarkColors.primaryColor.withOpacity(0.5),
       thumbColor: AppDarkColors.primaryColor,
     ),
-    tabBarTheme: const TabBarTheme(
+    tabBarTheme: const TabBarThemeData(
       labelColor: AppDarkColors.primaryColor,
       unselectedLabelColor: AppDarkColors.hintColor,
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: AppDarkColors.scaffoldBackgroundColor,
+      backgroundColor: Color.fromARGB(255, 11, 5, 5),
       selectedItemColor: AppDarkColors.primaryColor,
       unselectedItemColor: AppDarkColors.hintColor,
     ),
-    dialogTheme: const DialogTheme(
+    dialogTheme: const DialogThemeData(
       backgroundColor: AppDarkColors.scaffoldBackgroundColor,
       titleTextStyle: TextStyle(color: AppDarkColors.textColor, fontSize: 20),
       contentTextStyle: TextStyle(color: AppDarkColors.textColor, fontSize: 16),

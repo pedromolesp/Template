@@ -6,11 +6,20 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:templateapp/app/config/extensions/key_extension.dart';
+import 'package:templateapp/app/config/l10n/generated/app_localizations.dart';
 import 'package:templateapp/app/theme/color_scheme_plus.dart';
 import 'package:templateapp/app/theme/text_theme_plus.dart';
 import 'package:templateapp/app/theme/theme.dart';
 import 'package:templateapp/app/utils/enums/svg_enum.dart';
 import 'package:templateapp/domain/enums/keys_enum.dart';
+
+extension LocalizedBuildContext on BuildContext {
+  AppLocalizations get localizations => AppLocalizations.of(this)!;
+}
+
+extension SizeBuildContext on BuildContext {
+  Size get size => MediaQuery.of(this).size;
+}
 
 extension BuildContextExtension on BuildContext {
   // THEME

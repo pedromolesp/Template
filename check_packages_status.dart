@@ -153,9 +153,9 @@ Future<void> main() async {
           'line': '• $icon $name $version → $dateStr  $color($age)$reset',
         });
 
-        if (diffDays > 730)
+        if (diffDays > 730) {
           outdated ? critCon++ : critSin++;
-        else if (diffDays > 365)
+        } else if (diffDays > 365)
           outdated ? viejoCon++ : viejoSin++;
         else if (diffDays > 180)
           outdated ? semiCon++ : semiSin++;
