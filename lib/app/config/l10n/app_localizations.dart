@@ -18,7 +18,7 @@ import 'app_localizations_es.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'generated/app_localizations.dart';
+/// import 'l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -67,8 +67,8 @@ abstract class AppLocalizations {
 
   final String localeName;
 
-  static AppLocalizations? of(BuildContext context) {
-    return Localizations.of<AppLocalizations>(context, AppLocalizations);
+  static AppLocalizations of(BuildContext context) {
+    return Localizations.of<AppLocalizations>(context, AppLocalizations)!;
   }
 
   static const LocalizationsDelegate<AppLocalizations> delegate =
@@ -94,8 +94,8 @@ abstract class AppLocalizations {
 
   /// A list of this localizations delegate's supported locales.
   static const List<Locale> supportedLocales = <Locale>[
-    Locale('en'),
-    Locale('es')
+    Locale('es'),
+    Locale('en')
   ];
 
   /// No description provided for @appName.

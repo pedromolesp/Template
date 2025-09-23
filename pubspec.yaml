@@ -26,7 +26,9 @@ dependencies:
   flutter_launcher_icons: ^0.14.4
   flutter_localizations:
     sdk: flutter
+  intl: "^0.20.2"
   flutter_gen_runner: 5.11.0
+  flutter_native_splash: ^2.4.6
   freezed: ^3.2.0
   freezed_annotation: ^3.1.0
   get_it: ^8.0.3
@@ -45,6 +47,17 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
   build_runner: ^2.7.0
+
+flutter_native_splash:
+  color: "#000000"
+  # image: assets/launchImage.png
+  # background_image: assets/first_access_background.png
+  image: assets/images/background.png
+  android: true
+  ios: true
+  fullscreen: true
+  ios_content_mode: scaleAspectFill
+  android_gravity: fill
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
