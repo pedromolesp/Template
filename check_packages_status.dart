@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+// ignore: depend_on_referenced_packages
 import 'package:yaml/yaml.dart';
 
 // Colores ANSI
@@ -49,8 +51,10 @@ Future<void> main() async {
   final lockFile = File('pubspec.lock');
 
   if (!await pubspecFile.exists() || !await lockFile.exists()) {
-    print(
-        '⚠️ Asegúrate de tener pubspec.yaml y pubspec.lock en el directorio.');
+    if (kDebugMode) {
+      print(
+          '⚠️ Asegúrate de tener pubspec.yaml y pubspec.lock en el directorio.');
+    }
     return;
   }
 
@@ -100,7 +104,9 @@ Future<void> main() async {
     int recCon = 0, recSin = 0;
     int actualizados = 0;
 
-    print('\n📦 $title:\n');
+    if (kDebugMode) {
+      print('\n📦 $title:\n');
+    }
 
     final entries = <Map<String, dynamic>>[];
 
@@ -155,14 +161,15 @@ Future<void> main() async {
 
         if (diffDays > 730) {
           outdated ? critCon++ : critSin++;
-        } else if (diffDays > 365)
+        } else if (diffDays > 365) {
           outdated ? viejoCon++ : viejoSin++;
-        else if (diffDays > 180)
+        } else if (diffDays > 180) {
           outdated ? semiCon++ : semiSin++;
-        else if (diffDays > 90)
+        } else if (diffDays > 90) {
           outdated ? recCon++ : recSin++;
-        else
+        } else {
           actualizados++;
+        }
       } catch (e) {
         entries.add({
           'published': DateTime(2100),
@@ -178,24 +185,27 @@ Future<void> main() async {
 
     // Imprimir
     for (final entry in entries) {
-      print(entry['line']);
+      if (kDebugMode) {
+        print(entry['line']);
+      }
     }
-
-    // Resumen
-    print('\n✅ Resumen para $title:\n');
-    print('🔴 Críticos (> 2 años): ${critCon + critSin}');
-    print('   • Sin updates: $critSin');
-    print('   • Actualizables: $critCon');
-    print('🟠 Obsoletos (> 1 año): ${viejoCon + viejoSin}');
-    print('   • Sin updates: $viejoSin');
-    print('   • Actualizables: $viejoCon');
-    print('🟡 Poco mantenimiento (> 6 meses): ${semiCon + semiSin}');
-    print('   • Sin updates: $semiSin');
-    print('   • Actualizables: $semiCon');
-    print('🔵 Recientes (> 3 meses): ${recCon + recSin}');
-    print('   • Sin updates: $recSin');
-    print('   • Actualizables: $recCon');
-    print('🟢 Actualizados (≤ 3 meses): $actualizados');
+    if (kDebugMode) {
+      // Resumen
+      print('\n✅ Resumen para $title:\n');
+      print('🔴 Críticos (> 2 años): ${critCon + critSin}');
+      print('   • Sin updates: $critSin');
+      print('   • Actualizables: $critCon');
+      print('🟠 Obsoletos (> 1 año): ${viejoCon + viejoSin}');
+      print('   • Sin updates: $viejoSin');
+      print('   • Actualizables: $viejoCon');
+      print('🟡 Poco mantenimiento (> 6 meses): ${semiCon + semiSin}');
+      print('   • Sin updates: $semiSin');
+      print('   • Actualizables: $semiCon');
+      print('🔵 Recientes (> 3 meses): ${recCon + recSin}');
+      print('   • Sin updates: $recSin');
+      print('   • Actualizables: $recCon');
+      print('🟢 Actualizados (≤ 3 meses): $actualizados');
+    }
   }
 
   await analyzePackages(directPackages, 'Dependencias directas');

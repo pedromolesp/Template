@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
+// ignore: depend_on_referenced_packages
 import 'package:yaml/yaml.dart';
 
 // ANSI colors
@@ -49,7 +51,9 @@ Future<void> main() async {
   final file = File('pubspec.lock');
 
   if (!await file.exists()) {
-    print('No se encontró pubspec.lock');
+    if (kDebugMode) {
+      print('No se encontró pubspec.lock');
+    }
     return;
   }
 
@@ -74,14 +78,18 @@ Future<void> main() async {
   }
 
   if (packages.isEmpty) {
-    print('No se encontraron paquetes alojados en pub.dev.');
+    if (kDebugMode) {
+      print('No se encontraron paquetes alojados en pub.dev.');
+    }
     return;
   }
 
   final formatter = DateFormat('yyyy-MM-dd');
   final List<PackageInfo> packageInfos = [];
 
-  print('\n⏳ Consultando información de pub.dev...\n');
+  if (kDebugMode) {
+    print('\n⏳ Consultando información de pub.dev...\n');
+  }
 
   final total = packages.length;
   var index = 0;
@@ -150,14 +158,20 @@ Future<void> main() async {
             ageText: ageText,
           ));
         } else {
-          print('\n• $name $version → ❌ versión no encontrada en pub.dev');
+          if (kDebugMode) {
+            print('\n• $name $version → ❌ versión no encontrada en pub.dev');
+          }
         }
       } else {
-        print(
-            '\n• $name → ⚠️ error al consultar pub.dev (${response.statusCode})');
+        if (kDebugMode) {
+          print(
+              '\n• $name → ⚠️ error al consultar pub.dev (${response.statusCode})');
+        }
       }
     } catch (e) {
-      print('\n• $name → ⚠️ error: $e');
+      if (kDebugMode) {
+        print('\n• $name → ⚠️ error: $e');
+      }
     }
   }
 
@@ -167,7 +181,10 @@ Future<void> main() async {
   // Limpia línea de progreso
   stdout.write('\r${' ' * 50}\r');
 
-  print('\n📦 Fechas de publicación de paquetes (ordenado por antigüedad):\n');
+  if (kDebugMode) {
+    print(
+        '\n📦 Fechas de publicación de paquetes (ordenado por antigüedad):\n');
+  }
 
   // Contadores
   int criticosConUpdate = 0, criticosSinUpdate = 0;
@@ -178,8 +195,10 @@ Future<void> main() async {
 
   for (final pkg in packageInfos) {
     final formattedDate = formatter.format(pkg.published);
-    print(
-        '• ${pkg.icon} ${pkg.name} ${pkg.version} → $formattedDate  ${pkg.color}(${pkg.ageText})$reset');
+    if (kDebugMode) {
+      print(
+          '• ${pkg.icon} ${pkg.name} ${pkg.version} → $formattedDate  ${pkg.color}(${pkg.ageText})$reset');
+    }
 
     final diffDays = DateTime.now().difference(pkg.published).inDays;
     final hasUpdate = pkg.isOutdated;
@@ -196,20 +215,22 @@ Future<void> main() async {
       actualizados++;
     }
   }
-
-  print('\n✅ Resumen:\n');
-  print('🔴 Críticos (+2 años): ${criticosSinUpdate + criticosConUpdate}');
-  print('   • Sin updates: $criticosSinUpdate');
-  print('   • Actualizables: $criticosConUpdate');
-  print('🟠 Obsoletos (+1 año): ${viejosSinUpdate + viejosConUpdate}');
-  print('   • Sin updates: $viejosSinUpdate');
-  print('   • Actualizables: $viejosConUpdate');
-  print(
-      '🟡 Poco mantenimiento (+6 meses): ${semiViejosSinUpdate + semiViejosConUpdate}');
-  print('   • Sin updates: $semiViejosSinUpdate');
-  print('   • Actualizables: $semiViejosConUpdate');
-  print('🔵 Recientes (+3 meses): ${recientesSinUpdate + recientesConUpdate}');
-  print('   • Sin updates: $recientesSinUpdate');
-  print('   • Actualizables: $recientesConUpdate');
-  print('🟢 Actualizados: $actualizados');
+  if (kDebugMode) {
+    print('\n✅ Resumen:\n');
+    print('🔴 Críticos (+2 años): ${criticosSinUpdate + criticosConUpdate}');
+    print('   • Sin updates: $criticosSinUpdate');
+    print('   • Actualizables: $criticosConUpdate');
+    print('🟠 Obsoletos (+1 año): ${viejosSinUpdate + viejosConUpdate}');
+    print('   • Sin updates: $viejosSinUpdate');
+    print('   • Actualizables: $viejosConUpdate');
+    print(
+        '🟡 Poco mantenimiento (+6 meses): ${semiViejosSinUpdate + semiViejosConUpdate}');
+    print('   • Sin updates: $semiViejosSinUpdate');
+    print('   • Actualizables: $semiViejosConUpdate');
+    print(
+        '🔵 Recientes (+3 meses): ${recientesSinUpdate + recientesConUpdate}');
+    print('   • Sin updates: $recientesSinUpdate');
+    print('   • Actualizables: $recientesConUpdate');
+    print('🟢 Actualizados: $actualizados');
+  }
 }

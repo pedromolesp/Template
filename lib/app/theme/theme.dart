@@ -146,7 +146,7 @@ class AppTheme {
       textStyle: const TextStyle(color: AppColors.appBarTextColor),
     ),
     chipTheme: ChipThemeData(
-      backgroundColor: AppColors.primaryColor.withOpacity(0.1),
+      backgroundColor: AppColors.primaryColor.withValues(alpha: .1),
       labelStyle: const TextStyle(color: AppColors.textColor),
       selectedColor: AppColors.primaryColor,
       secondarySelectedColor: AppColors.primaryColor,
@@ -218,12 +218,12 @@ class AppTheme {
     ),
     switchTheme: SwitchThemeData(
       thumbColor: WidgetStateProperty.all(AppDarkColors.primaryColor),
-      trackColor:
-          WidgetStateProperty.all(AppDarkColors.primaryColor.withOpacity(0.5)),
+      trackColor: WidgetStateProperty.all(
+          AppDarkColors.primaryColor.withValues(alpha: .5)),
     ),
     sliderTheme: SliderThemeData(
       activeTrackColor: AppDarkColors.primaryColor,
-      inactiveTrackColor: AppDarkColors.primaryColor.withOpacity(0.5),
+      inactiveTrackColor: AppDarkColors.primaryColor.withValues(alpha: .5),
       thumbColor: AppDarkColors.primaryColor,
     ),
     tabBarTheme: const TabBarThemeData(
@@ -248,7 +248,7 @@ class AppTheme {
       textStyle: const TextStyle(color: AppDarkColors.appBarTextColor),
     ),
     chipTheme: ChipThemeData(
-      backgroundColor: AppDarkColors.primaryColor.withOpacity(0.1),
+      backgroundColor: AppDarkColors.primaryColor.withValues(alpha: .1),
       labelStyle: const TextStyle(color: AppDarkColors.textColor),
       selectedColor: AppDarkColors.primaryColor,
       secondarySelectedColor: AppDarkColors.primaryColor,
