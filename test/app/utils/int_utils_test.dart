@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:templateapp/app/utils/int_utils.dart';
+import 'package:templateapp/core/utils/int_utils.dart';
 
 void main() {
   test('Int Utils isSuccessCode true', () {

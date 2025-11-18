@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:templateapp/app/config/di/dependency_inyector.dart';
-import 'package:templateapp/app/config/l10n/localization_setup.dart';
-import 'package:templateapp/app/constants/constants.dart';
-import 'package:templateapp/app/routes/routes.dart';
-import 'package:templateapp/app/theme/theme.dart';
-import 'package:templateapp/presentation/state_handlers/blocs/top_blocs.dart';
-import 'package:templateapp/presentation/state_handlers/cubit/global_cubit.dart';
+import 'package:templateapp/core/config/di/dependency_inyector.dart';
+import 'package:templateapp/core/config/l10n/localization_setup.dart';
+import 'package:templateapp/core/constants/constants.dart';
+import 'package:templateapp/core/routes/routes.dart';
+import 'package:templateapp/core/state_handlers/blocs/top_blocs.dart';
+import 'package:templateapp/core/state_handlers/cubit/global_cubit.dart';
+import 'package:templateapp/core/theme/theme.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

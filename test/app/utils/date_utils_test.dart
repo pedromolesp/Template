@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:templateapp/app/utils/date_utils.dart';
+import 'package:templateapp/core/utils/date_utils.dart';
 
 void main() {
   test('Date Utils formatAsDayMonthYear', () {
